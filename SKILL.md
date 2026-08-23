@@ -28,6 +28,26 @@ description: 만들고 싶은 화면을 푸는 방법이 다른 세 가지 안�
 
 ---
 
+## 학생 컴퓨터가 윈도우일 수 있다 (명령 내기 전에 확인)
+
+**어떤 컴퓨터인지 먼저 확인하고 그에 맞는 명령만 준다.** 환경 정보에 있고, 없으면 `uname -s` 로 본다.
+맥 명령을 윈도우 학생에게 주면 오류만 보고 거기서 막힌다. 학생은 왜 안 되는지 모른다.
+
+| | 맥 · 리눅스 | 윈도우 (PowerShell) |
+|---|---|---|
+| 스킬 폴더 | `~/.claude/skills/` | `$env:USERPROFILE\.claude\skills\` |
+| 파일이 있나 | `test -f "경로"` | `Test-Path "경로"` |
+| 명령이 있나 | `command -v node` | `Get-Command node -ErrorAction SilentlyContinue` |
+| 스크립트 실행 | `bash 파일.sh` | `powershell -ExecutionPolicy Bypass -File 파일.ps1` |
+
+> ⚠️ **윈도우 학생에게 `~` 를 주지 않는다.** PowerShell 에서는 동작하지만
+> cmd 창에서는 `~` 라는 폴더가 새로 생겨서 엉뚱한 데 설치된다.
+>
+> ⚠️ **WSL 안의 `bash` 를 쓰지 않게 한다.** WSL 의 홈은 윈도우 홈과 달라서,
+> 거기 설치하면 Claude Code 가 스킬을 찾지 못한다.
+
+---
+
 ## 진행률 — 단계마다 반드시 먼저 출력한다
 
 화면을 만드는 동안 몇 분씩 조용해진다. 그때 학생은 멈춘 줄 알고 창을 닫는다.
@@ -81,7 +101,10 @@ description: 만들고 싶은 화면을 푸는 방법이 다른 세 가지 안�
 
 **2) 도구가 있는지 내가 조용히 확인한다.** 학생에게 시키지 않는다.
 
-화면을 만들려면 `node` 또는 `bun` 이 필요하다. `command -v node || command -v bun` 으로 확인한다.
+화면을 만들려면 `node` 또는 `bun` 이 필요하다.
+
+- 맥·리눅스: `command -v node || command -v bun`
+- 윈도우: `Get-Command node -ErrorAction SilentlyContinue`
 
 - **있으면** 아무 말 하지 않고 넘어간다.
 - **없으면** 이렇게 안내하고 멈춘다. 캔버스를 만들 방법이 없다.
@@ -90,8 +113,11 @@ description: 만들고 싶은 화면을 푸는 방법이 다른 세 가지 안�
   nodejs.org 에서 LTS 버전을 받아 설치하시고, Claude Code를 껐다 켜 주세요.
   설치가 어려우시면 알려 주세요 — 도구 없이 글과 표로만 설계해 드릴 수도 있습니다.
   ```
-- **설치는 돼 있는데 찾지 못하는 경우**(예: nvm 으로 깔았을 때)가 있다.
-  그때는 `ls ~/.nvm/versions/node/*/bin/node` 로 한 번 더 찾아보고, 있으면 그 경로를 쓴다.
+- **설치는 돼 있는데 찾지 못하는 경우**가 있다. 버전 관리 도구로 깔면 그렇다.
+  - 맥·리눅스(nvm): `ls ~/.nvm/versions/node/*/bin/node`
+  - 윈도우(nvm-windows): `dir "$env:APPDATA\nvm"` 또는 `where node`
+
+  찾으면 그 경로를 그대로 쓴다.
 
 **3) 그다음 `AskUserQuestion` 으로 확인받는다.**
 

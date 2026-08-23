@@ -4,16 +4,29 @@
 
 ---
 
-## 설치 — 터미널에 한 줄
+## 설치
+
+### 🍎 맥 · 리눅스 — 터미널에 붙여넣기
 
 ```bash
 git clone https://github.com/soodiumstudio/portfolio-design.git ~/.claude/skills/portfolio-design
 ```
 
-붙여넣고 엔터를 치면 끝입니다. **Claude Code를 껐다 켜세요.**
+### 🪟 윈도우 — PowerShell 에 붙여넣기
+
+> **PowerShell** 을 여세요. 시작 메뉴에서 "PowerShell" 을 검색하면 나옵니다.
+> **cmd 창은 안 됩니다.** cmd 에서는 `~` 가 폴더 이름으로 잘못 인식됩니다.
+
+```powershell
+git clone https://github.com/soodiumstudio/portfolio-design.git "$env:USERPROFILE\.claude\skills\portfolio-design"
+```
+
+### 둘 다 끝나면
+
+**Claude Code를 완전히 껐다 켜세요.** 그래야 스킬이 잡힙니다.
 
 > 💡 `/plugin install` 은 쓰지 않습니다. 환경에 따라 그 명령이 아예 없습니다.
-> 스킬은 `~/.claude/skills/` 폴더에 넣으면 그대로 인식됩니다.
+> 스킬은 스킬 폴더에 넣으면 그대로 인식됩니다.
 
 ## 쓰는 법
 
@@ -52,9 +65,15 @@ Claude Code 입력창에 (터미널 아니고, **채팅창**입니다):
 | 지난주 결과가 안 보여요 | 폴더를 잘못 여셨습니다. 매주 같은 폴더를 여세요 |
 | 뭘 답해야 할지 모르겠어요 | **"잘 모르겠어요"를 고르세요.** 그게 정상입니다 |
 | 중간에 멈춘 것 같아요 | 진행률 막대를 보세요. 조사·채점 구간은 몇 분 걸립니다 |
+| 윈도우인데 명령이 안 먹어요 | **PowerShell** 을 쓰세요. cmd 창에서는 `~` 가 안 됩니다 |
+| 화면이 안 만들어져요 | `node` 가 필요합니다. [nodejs.org](https://nodejs.org) 에서 LTS 를 설치하세요 |
 
 ## 업데이트
 
 ```bash
 cd ~/.claude/skills/portfolio-design && git pull
+```
+윈도우는
+```powershell
+cd "$env:USERPROFILE\.claude\skills\portfolio-design"; git pull
 ```
