@@ -6,17 +6,20 @@
 
 ## 설치
 
-```bash
+> ⚠️ 아래 명령은 **Claude Code 입력창**에 입력하세요. 터미널(zsh)에 붙여넣으면
+> `zsh: no such file or directory: /plugin` 오류가 납니다. 슬래시 명령은 셸 명령이 아닙니다.
+
+```
 /plugin marketplace add https://github.com/soodiumstudio/portfolio-design.git
 ```
 
-```bash
+```
 /plugin install portfolio-design
 ```
 
 ## 사용
 
-```bash
+```
 /portfolio-design
 ```
 
