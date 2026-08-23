@@ -6,25 +6,27 @@
 
 ## 설치
 
-> ⚠️ 아래 명령은 **Claude Code 입력창**에 입력하세요. 터미널(zsh)에 붙여넣으면
-> `zsh: no such file or directory: /plugin` 오류가 납니다. 슬래시 명령은 셸 명령이 아닙니다.
+터미널에 아래 한 줄을 입력하세요.
 
-```
-/plugin marketplace add https://github.com/soodiumstudio/portfolio-design.git
+```bash
+git clone https://github.com/soodiumstudio/portfolio-design.git ~/.claude/skills/portfolio-design
 ```
 
-```
-/plugin install portfolio-design
+Claude Code를 껐다 켜면 바로 쓸 수 있습니다.
+
+> ⚠️ `/plugin install` 은 쓰지 않습니다. 환경에 따라 `/plugin` 자체가 없습니다.
+> 스킬은 `~/.claude/skills/` 에 폴더로 넣으면 그대로 인식됩니다.
+
+## 업데이트
+
+```bash
+cd ~/.claude/skills/portfolio-design && git pull
 ```
 
 ## 사용
 
-```
-/portfolio-design
-```
+Claude Code 입력창에 (터미널 아님):
+
+    /portfolio-design
 
 필요한 것이 있으면 먼저 물어봅니다. 준비물 없이 그냥 실행해도 됩니다.
-
-## 이 스킬 하나만 있으면 됩니다
-
-다른 스킬이나 이전 단계 결과물을 필요로 하지 않습니다. 결과는 지금 열어 둔 폴더에 저장됩니다.
