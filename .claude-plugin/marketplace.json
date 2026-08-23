@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "portfolio-design",
+  "description": "포트폴리오 3~4회차 — 화면 요구 명세와 안 A·B·C 제작, 비교 기준으로 선택하고 트레이드오프 기록.",
+  "owner": {
+    "name": "soodiumstudio"
+  },
+  "plugins": [
+    {
+      "name": "portfolio-design",
+      "description": "포트폴리오 3~4회차 — 화면 요구 명세와 안 A·B·C 제작, 비교 기준으로 선택하고 트레이드오프 기록.",
+      "source": "./plugins/portfolio-design",
+      "category": "design",
+      "homepage": "https://github.com/soodiumstudio/portfolio-design"
+    }
+  ]
+}
