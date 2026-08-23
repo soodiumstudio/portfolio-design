@@ -1,7 +1,7 @@
 {
   "name": "portfolio-design",
-  "description": "포트폴리오 3~4회차 — 화면 요구 명세와 안 A·B·C 제작, 비교 기준으로 선택하고 트레이드오프 기록.",
-  "version": "0.1.0",
+  "description": "화면에 무엇이 필요한지 먼저 정리한 뒤, 푸는 방법이 다른 화면 안을 세 개 만들고, 기준을 세워 하나를 고르게 한다.",
+  "version": "0.2.0",
   "author": {
     "name": "soodiumstudio"
   }
